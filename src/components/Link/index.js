@@ -15,10 +15,19 @@ function Link({ href, children, target }) {
 }
 
 Link.propTypes = {
+  /**
+   * The link target url.
+   */
   href: PropTypes.string.isRequired,
+  /**
+   * Elements to render as children.
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
-  target: PropTypes.string,
+  /**
+   * Whether to open the target in a new tab.
+   */
+  target: PropTypes.oneOf(["_self", "_blank"]),
 };
 
 Link.defaultProps = {
