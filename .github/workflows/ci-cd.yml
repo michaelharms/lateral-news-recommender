@@ -29,7 +29,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Deploy on Vercel (ZEIT)
-        uses: amondnet/now-deployment@v2.0.2
+      - name: Install now CLI
+        run: yarn global add now
+
+      - name: Deploy with now (ZEIT/Vercel)
+        run: now --token $ZEIT_TOKEN
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
