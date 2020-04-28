@@ -30,6 +30,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy with now (ZEIT/Vercel)
-        run: now --token $ZEIT_TOKEN
+        run: now --token $ZEIT_TOKEN --confirm
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
