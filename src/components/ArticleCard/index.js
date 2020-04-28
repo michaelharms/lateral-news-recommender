@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "../Card";
+import Link from "../Link";
+import styled from "styled-components";
+import { space } from "styled-system";
+import formatDate from "../../utils/formatDate";
 
 /**
  * Similar Article Card.
@@ -35,20 +39,60 @@ function ArticleCard({ article }) {
     : "No similarity score";
 
   return (
-    <a href={url}>
+    <CardLink href={url} target="_blank">
       <Card>
-        <div>
-          <h3>{title}</h3>
-          <p>{similarityText}</p>
-          <p>{published}</p>
-          <p>{image}</p>
-          <p>{sourceName}</p>
-          <p>{thumbnail}</p>
-        </div>
+        <FlexRow>
+          <div>
+            <Image src={image} alt={`${title}`} />
+          </div>
+
+          <TextContainer p={3} pt={0}>
+            <h3>{title}</h3>
+
+            <FlexRow>
+              <div>
+                <Score>{similarityText}</Score>
+                <span>{formatDate(published)}</span>
+                <span>{sourceName}</span>
+              </div>
+              <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
+            </FlexRow>
+          </TextContainer>
+        </FlexRow>
       </Card>
-    </a>
+    </CardLink>
   );
 }
+
+const Image = styled.img`
+  max-width: 98px;
+  object-fit: cover;
+`;
+
+const Thumbnail = styled.img`
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const Score = styled.span`
+  font-weight: bold;
+  color: green;
+`;
+
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const CardLink = styled(Link)`
+  color: black;
+`;
+
+const TextContainer = styled.div(space);
 
 ArticleCard.propTypes = {
   /**
