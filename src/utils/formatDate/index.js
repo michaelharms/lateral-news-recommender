@@ -6,7 +6,7 @@ const options = {
 
 /**
  * Formats ISO-8601 into readable form.
- * @param {string} date - A valid ISO-8601 date as string
+ * @param {string} date - A valid ISO-8601 date-time as string
  */
 function formatDate(date) {
   return new Date(date).toLocaleString("de-DE", options);
