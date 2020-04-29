@@ -4,6 +4,7 @@ import Card from "../Card";
 import Link from "../Link";
 import styled from "styled-components";
 import { space } from "styled-system";
+import colors from "../../styles/colors";
 import formatDate from "../../utils/formatDate";
 
 /**
@@ -25,7 +26,7 @@ function ArticleCard({ article }) {
     : "No similarity score";
 
   return (
-    <CardLink href={url} target="_blank">
+    <Link href={url} target="_blank">
       <Card>
         <FlexRow>
           <div>
@@ -38,15 +39,15 @@ function ArticleCard({ article }) {
             <FlexRow>
               <div>
                 <Score>{similarityText}</Score>
-                <span>{formatDate(published)}</span>
-                <span>{sourceName}</span>
+                <Meta>{formatDate(published)}</Meta>
+                <Meta>{sourceName}</Meta>
               </div>
               <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
             </FlexRow>
           </TextContainer>
         </FlexRow>
       </Card>
-    </CardLink>
+    </Link>
   );
 }
 
@@ -64,7 +65,12 @@ const Thumbnail = styled.img`
 
 const Score = styled.span`
   font-weight: bold;
-  color: green;
+  font-family: "Lato", sans-serif;
+  color: ${colors.green};
+`;
+
+const Meta = styled.span`
+  color: ${colors.gray};
 `;
 
 const FlexRow = styled.div`
@@ -74,11 +80,10 @@ const FlexRow = styled.div`
   align-items: center;
 `;
 
-const CardLink = styled(Link)`
-  color: black;
+const TextContainer = styled.div`
+  ${space};
+  color: ${colors.black};
 `;
-
-const TextContainer = styled.div(space);
 
 ArticleCard.propTypes = {
   /**
