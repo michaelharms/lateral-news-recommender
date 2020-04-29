@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add Lateral API Key
-        run: now secrets add lateral-key $LATERAL_TOKEN
+        run: now --token $ZEIT_TOKEN secrets add lateral-key $LATERAL_TOKEN
 
       - name: Deploy with ZEIT/Vercel
         run: now --token $ZEIT_TOKEN --prod --confirm
