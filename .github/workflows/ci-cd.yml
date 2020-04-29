@@ -34,6 +34,8 @@ jobs:
 
       - name: Add Lateral API Key
         run: now secrets add lateral-key $LATERAL_TOKEN --token $ZEIT_TOKEN
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
       - name: Deploy with ZEIT/Vercel
         run: now --token $ZEIT_TOKEN --prod --confirm
