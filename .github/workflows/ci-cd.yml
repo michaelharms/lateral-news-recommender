@@ -36,9 +36,9 @@ jobs:
         run: now --token=$ZEIT_TOKEN secrets add lateralToken $LATERAL_TOKEN
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+          LATERAL_TOKEN: ${{ secrets.LATERAL_TOKEN }}
 
       - name: Deploy with ZEIT/Vercel
         run: now --token=$ZEIT_TOKEN --prod --confirm
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
-          LATERAL_TOKEN: ${{ secrets.LATERAL_TOKEN }}
