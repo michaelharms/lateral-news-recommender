@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add Lateral API Key
-        run: now --token=$ZEIT_TOKEN secrets add lateralToken $LATERAL_TOKEN
+        run: now --token=$ZEIT_TOKEN secrets add lateral-token $LATERAL_TOKEN
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
           LATERAL_TOKEN: ${{ secrets.LATERAL_TOKEN }}
