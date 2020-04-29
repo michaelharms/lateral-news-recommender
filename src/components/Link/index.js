@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import colors from "../../styles/colors";
 
 const StyledLink = styled.a`
   text-decoration: none;
+  color: ${colors.blue};
 `;
 
 /**
