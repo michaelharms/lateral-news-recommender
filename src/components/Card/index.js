@@ -5,8 +5,9 @@ import styled from "styled-components";
  * Universal card component.
  */
 const Card = styled.div`
-  box-shadow: 0px 9px 17px -5px rgba(0, 0, 0, 0.56);
-  border-radius: 16px;
+  box-shadow: 0px 9px 17px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
 `;
 
 Card.propTypes = {
