@@ -15,8 +15,9 @@ export const basic = () => {
     return (
       <>
         <Input
-          id="username"
-          label="Username"
+          id="email"
+          label="Email"
+          placeholder="user@mail.com"
           value={inputValue}
           onChange={({ target: { value } }) => setInputValue(value)}
         />
@@ -29,15 +30,16 @@ export const basic = () => {
 
 export const error = () => {
   function Parent({ children }) {
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState("Test");
     return (
       <>
         <Input
-          id="username"
-          label="Username"
+          id="email"
+          label="Email"
+          placeholder="user@mail.com"
           value={inputValue}
           onChange={({ target: { value } }) => setInputValue(value)}
-          error="Invalid username"
+          error="Invalid Email"
         />
       </>
     );

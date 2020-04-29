@@ -8,11 +8,12 @@ export const GlobalStyle = createGlobalStyle`
   ${fonts}
 
   body {
+    padding: 1rem;
     background-color: ${colors.offWhite};
     color: ${colors.black};
     font-family: 'Nunito', sans-serif;
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 0 auto;
 
     h3 {
       font-family: 'Nunito', sans-serif;    

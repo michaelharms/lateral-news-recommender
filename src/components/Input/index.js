@@ -7,11 +7,17 @@ import { StyledInput, Label, Error } from "./styled";
  *
  * Value state has to be managed by its parent.
  */
-function Input({ id, value, label, onChange, onEnter, error }) {
+function Input({ id, value, label, onChange, onEnter, error, placeholder }) {
   return (
     <>
       {label && <Label htmlFor={id}>{label}</Label>}
-      <StyledInput id={id} value={value} onChange={onChange} error={error} />
+      <StyledInput
+        id={id}
+        value={value}
+        onChange={onChange}
+        error={error}
+        placeholder={placeholder}
+      />
       {error && <Error>{error}</Error>}
     </>
   );
@@ -38,12 +44,17 @@ Input.propTypes = {
    * Error message to display.
    */
   error: PropTypes.string,
+  /**
+   * Input Placeholder
+   */
+  placeholder: PropTypes.string,
 };
 
 Input.defaultProps = {
   value: "",
   label: "",
   error: null,
+  placeholder: "",
 };
 
 export default Input;
