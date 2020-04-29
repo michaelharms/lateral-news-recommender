@@ -15,41 +15,58 @@ test("updates value", () => {
 
   const { getByLabelText, rerender } = render(
     <Input
-      id="username"
-      label="Username"
+      id="email"
+      label="Email"
+      placeholder="user@mail.com"
       value={value}
       onChange={handleChange}
     />
   );
 
-  const input = getByLabelText("Username");
+  const input = getByLabelText("Email");
 
   expect(input.value).toBe("");
-  fireEvent.change(input, { target: { value: "abc" } });
+  fireEvent.change(input, { target: { value: "abc@mail.com" } });
   expect(handleChange).toHaveBeenCalledTimes(1);
 
   rerender(
     <Input
-      id="username"
-      label="Username"
+      id="email"
+      label="Email"
+      placeholder="user@mail.com"
       value={value}
       onChange={handleChange}
     />
   );
 
-  expect(input.value).toBe("abc");
+  expect(input.value).toBe("abc@mail.com");
 });
 
 test("displays error", () => {
   const { getByText } = render(
     <Input
-      id="username"
-      label="Username"
-      value=""
+      id="email"
+      label="Email"
+      placeholder="user@mail.com"
+      value="Test"
       onChange={jest.fn()}
-      error="Invalid username"
+      error="Invalid Email"
     />
   );
-  const error = getByText(/Invalid username/i);
+  const error = getByText(/Invalid Email/i);
+  expect(error).toBeInTheDocument();
+});
+
+test("displays placeholder", () => {
+  const { getByPlaceholderText } = render(
+    <Input
+      id="email"
+      label="Username"
+      placeholder="user@mail.com"
+      value=""
+      onChange={jest.fn()}
+    />
+  );
+  const error = getByPlaceholderText(/user@mail.com/i);
   expect(error).toBeInTheDocument();
 });
