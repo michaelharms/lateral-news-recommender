@@ -1,4 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import nunitoEOT from "../fonts/nunito-v12-latin-regular.eot";
+import nunitoSVG from "../fonts/nunito-v12-latin-regular.svg";
+import nunitoTTF from "../fonts/nunito-v12-latin-regular.ttf";
+import nunitoWOFF from "../fonts/nunito-v12-latin-regular.woff";
+import nunitoWOFF2 from "../fonts/nunito-v12-latin-regular.woff2";
 
 const normalize = `
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -355,9 +360,29 @@ template {
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  @font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    src: url('${nunitoEOT}'); /* IE9 Compat Modes */
+    src: local('Nunito Regular'), local('Nunito-Regular'),
+        url('${nunitoEOT}?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('${nunitoWOFF2}') format('woff2'), /* Super Modern Browsers */
+        url('${nunitoWOFF}') format('woff'), /* Modern Browsers */
+        url('${nunitoTTF}') format('truetype'), /* Safari, Android, iOS */
+        url('${nunitoSVG}#Nunito') format('svg'); /* Legacy iOS */
+  }
+
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     max-width: 500px;
     margin: 2rem auto;
+
+    h3 {
+      font-family: 'Nunito', sans-serif;    
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+    }
   }
 `;
