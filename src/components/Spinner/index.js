@@ -8,12 +8,13 @@ const spin = keyframes`
 
 const StyledDiv = styled.div`
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border: 2px solid white;
   border-radius: 50%;
   border-top-color: ${colors.blue};
   animation: ${spin} 0.75s ease-in-out infinite;
+  margin: 0 1rem;
 `;
 
 /**
