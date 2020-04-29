@@ -84,6 +84,7 @@ function App() {
       <Input
         id="url"
         label="URL"
+        placeholder="https://www.nytimes.com/column/learning-article-of-the-day"
         value={url}
         onChange={handleInputChange}
         error={inputError}
