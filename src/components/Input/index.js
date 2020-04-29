@@ -25,7 +25,7 @@ function Input({ id, value, label, onChange, onEnter, error, placeholder }) {
 
 Input.propTypes = {
   /**
-   * Unique html id for connecting with label
+   * Unique html id for connecting with label.
    */
   id: PropTypes.string.isRequired,
   /**
@@ -45,7 +45,7 @@ Input.propTypes = {
    */
   error: PropTypes.string,
   /**
-   * Input Placeholder
+   * Input Placeholder.
    */
   placeholder: PropTypes.string,
 };
