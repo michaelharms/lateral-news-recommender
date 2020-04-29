@@ -33,5 +33,5 @@ test("no click handling if disabled", () => {
     button,
     new MouseEvent("click", { bubbles: true, cancelable: true })
   );
-  expect(handleClick).toNotHaveBeenCalled();
+  expect(handleClick).not.toHaveBeenCalled();
 });

@@ -5,8 +5,12 @@ import { StyledButton } from "./styled";
 /**
  * Button component.
  */
-function Button({ children, disabled }) {
-  return <StyledButton disabled={disabled}>{children}</StyledButton>;
+function Button({ children, disabled, onClick }) {
+  return (
+    <StyledButton disabled={disabled} onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 }
 
 Button.propTypes = {
@@ -16,13 +20,18 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
   /**
-   * Whether the Button should be clickable
+   * Whether the Button should be clickable.
    */
   disabled: PropTypes.bool,
+  /**
+   * Handling click events.
+   */
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   disabled: false,
+  onClick: () => {},
 };
 
 export default Button;
