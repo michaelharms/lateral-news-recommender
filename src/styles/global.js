@@ -381,7 +381,7 @@ export const GlobalStyle = createGlobalStyle`
     h3 {
       font-family: 'Nunito', sans-serif;    
       font-weight: 400;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.5;
     }
   }
