@@ -20,3 +20,18 @@ test("calls click handler", () => {
   );
   expect(handleClick).toHaveBeenCalled();
 });
+
+test("no click handling if disabled", () => {
+  const handleClick = jest.fn();
+  const { getByText } = render(
+    <Button disabled onClick={handleClick}>
+      Click me!
+    </Button>
+  );
+  const button = getByText(/Click me!/i);
+  fireEvent(
+    button,
+    new MouseEvent("click", { bubbles: true, cancelable: true })
+  );
+  expect(handleClick).toNotHaveBeenCalled();
+});
