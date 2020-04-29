@@ -27,33 +27,45 @@ function ArticleCard({ article }) {
 
   return (
     <Link href={url} target="_blank">
-      <Card>
-        <FlexRow>
-          <div>
-            <Image src={image} alt={`${title}`} />
-          </div>
+      <MinHeightCard>
+        <ImageContainer>
+          <Image src={image} alt={`${title}`} />
+        </ImageContainer>
+        <TextContainer p={3} pt={0}>
+          <h3>{title}</h3>
 
-          <TextContainer p={3} pt={0}>
-            <h3>{title}</h3>
-
-            <FlexRow>
-              <div>
-                <Score>{similarityText}</Score>
-                <Meta>{formatDate(published)}</Meta>
-                <Meta>{sourceName}</Meta>
-              </div>
-              <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
-            </FlexRow>
-          </TextContainer>
-        </FlexRow>
-      </Card>
+          <FlexRow>
+            <div>
+              <Score>{similarityText}</Score>
+              <Meta>{formatDate(published)}</Meta>
+              <Meta>{sourceName}</Meta>
+            </div>
+            <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
+          </FlexRow>
+        </TextContainer>
+      </MinHeightCard>
     </Link>
   );
 }
 
+// https://stackoverflow.com/a/19193308/11939354
+const ImageContainer = styled.div`
+  min-width: 98px;
+  min-height: 100%;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+`;
+
 const Image = styled.img`
-  max-width: 98px;
-  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
 `;
 
 const Thumbnail = styled.img`
@@ -71,6 +83,11 @@ const Score = styled.span`
 
 const Meta = styled.span`
   color: ${colors.gray};
+`;
+
+const MinHeightCard = styled(Card)`
+  min-height: 140px;
+  display: flex;
 `;
 
 const FlexRow = styled.div`
