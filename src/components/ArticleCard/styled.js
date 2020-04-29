@@ -30,14 +30,25 @@ export const Thumbnail = styled.img`
   border-radius: 8px;
 `;
 
+export const Divider = styled.span`
+  &:before {
+    content: "|";
+  }
+
+  color: ${colors.gray};
+  padding-right: 0.5rem;
+`;
+
 export const Score = styled.span`
   font-weight: bold;
   font-family: "Lato", sans-serif;
   color: ${colors.green};
+  padding-right: 0.5rem;
 `;
 
 export const Meta = styled.span`
   color: ${colors.gray};
+  padding-right: 0.5rem;
 `;
 
 export const MinHeightCard = styled(Card)`

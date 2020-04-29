@@ -11,6 +11,7 @@ import {
   Meta,
   Image,
   Thumbnail,
+  Divider,
 } from "./styled";
 
 /**
@@ -43,7 +44,9 @@ function ArticleCard({ article }) {
           <FlexRow>
             <div>
               <Score>{similarityText}</Score>
+              <Divider />
               <Meta>{formatDate(published)}</Meta>
+              <Divider />
               <Meta>{sourceName}</Meta>
             </div>
             <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
