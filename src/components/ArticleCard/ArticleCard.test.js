@@ -25,7 +25,7 @@ test("renders article data", () => {
   );
   expect(title).toBeInTheDocument();
 
-  const date = getByText(/2020-01-10/i);
+  const date = getByText(/10. Jan. 20/i);
   expect(date).toBeInTheDocument();
 
   const source = getByText(/Forbes/i);
