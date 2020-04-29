@@ -8,8 +8,9 @@ export const GlobalStyle = createGlobalStyle`
   ${fonts}
 
   body {
-    font-family: 'Nunito', sans-serif;
+    background-color: ${colors.offWhite};
     color: ${colors.black};
+    font-family: 'Nunito', sans-serif;
     max-width: 500px;
     margin: 2rem auto;
 
