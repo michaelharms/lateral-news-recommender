@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   line-height: 1;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.5px;
   padding: 12px 24px;
