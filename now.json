@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_LATERAL_KEY": "@lateral-token"
+    }
+  }
+}

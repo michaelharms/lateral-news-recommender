@@ -32,8 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Add Lateral API Key
+        run: now secrets add lateral-key $LATERAL_TOKEN
+
       - name: Deploy with ZEIT/Vercel
-        run: now --token $ZEIT_TOKEN -e REACT_APP_LATERAL_KEY=$LATERAL_TOKEN --prod --confirm
+        run: now --token $ZEIT_TOKEN --prod --confirm
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
           LATERAL_TOKEN: ${{ secrets.LATERAL_TOKEN }}
