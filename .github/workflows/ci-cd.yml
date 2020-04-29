@@ -32,7 +32,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Deploy with now (ZEIT/Vercel)
-        run: now --token $ZEIT_TOKEN --confirm
+      - name: Deploy with ZEIT/Vercel
+        run: now --token $ZEIT_TOKEN -e REACT_APP_LATERAL_KEY=$LATERAL_TOKEN --prod --confirm
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+          LATERAL_TOKEN: ${{ secrets.LATERAL_TOKEN }}
