@@ -3,10 +3,6 @@ import styled from "styled-components";
 
 /**
  * Universal card component.
- *
- * @component
- * @example
- * return <Card>Content</Card>;
  */
 const Card = styled.div`
   box-shadow: 0px 9px 17px -5px rgba(0, 0, 0, 0.56);

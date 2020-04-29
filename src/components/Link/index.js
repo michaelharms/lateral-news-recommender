@@ -6,6 +6,9 @@ const StyledLink = styled.a`
   text-decoration: none;
 `;
 
+/**
+ * HTML Link with best practices.
+ */
 function Link({ href, children, target }) {
   return (
     <StyledLink href={href} target={target} rel="noopener noreferrer">
