@@ -12,15 +12,23 @@ const StyledDiv = styled.div`
 /**
  * Universal card component.
  */
-function Card({ children }) {
-  return <StyledDiv>{children}</StyledDiv>;
+function Card({ children, className }) {
+  return <StyledDiv className={className}>{children}</StyledDiv>;
 }
 
 Card.propTypes = {
   /**
    * Elements to render as children.
    */
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  children: PropTypes.any.isRequired,
+  /**
+   * Class name for overwriting styles.
+   */
+  className: PropTypes.string,
+};
+
+Card.defaultProps = {
+  className: "",
 };
 
 export default Card;
