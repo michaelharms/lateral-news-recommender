@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from "../../styles/colors";
+import { colors, breakpoints } from "../../styles";
 import { Newspaper } from "@styled-icons/fa-regular";
 import { Time } from "@styled-icons/boxicons-regular";
 import { QuestionCircle } from "@styled-icons/fa-solid";
@@ -16,6 +16,13 @@ export const FlexRow = styled.div`
   align-items: center;
 `;
 
+export const ResponsiveFlexRow = styled(FlexRow)`
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
 export const Divider = styled.span`
   &:before {
     content: "|";
@@ -23,6 +30,10 @@ export const Divider = styled.span`
 
   color: ${colors.lightGray};
   padding: 0 0.75rem;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const FiltersLabel = styled.span`
@@ -40,6 +51,10 @@ export const FilterValue = styled.span`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding-top: 0.5rem;
+  }
 `;
 
 export const HelpIcon = styled(QuestionCircle)`

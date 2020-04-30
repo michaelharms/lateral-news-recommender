@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import colors from "../../styles/colors";
+import { colors } from "../../styles";
 
 const spin = keyframes`
   to { transform: rotate(360deg); 
