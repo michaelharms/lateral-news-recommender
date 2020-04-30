@@ -17,15 +17,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-app": "react-scripts build",
     "test": "NODE_ICU_DATA=node_modules/full-icu react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -s public -o build/storybook",
     "cypress": "node_modules/.bin/cypress run",
     "cypress:open": "node_modules/.bin/cypress open",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "build": "react-scripts build && build-storybook -s public -o build/storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
