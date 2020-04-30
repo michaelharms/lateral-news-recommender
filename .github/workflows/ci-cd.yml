@@ -24,8 +24,10 @@ jobs:
       - name: Unit Tests
         run: yarn test
 
-      - name: E2E Tests
+      - name: Start Dev Server
         run: yarn start & node_modules/.bin/wait-on http://localhost:3000
+
+      - name: E2E Tests
         uses: cypress-io/github-action@v1
 
   deploy:
