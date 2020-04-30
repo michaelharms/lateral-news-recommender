@@ -7,6 +7,7 @@ import {
   ImageContainer,
   TextContainer,
   FlexRow,
+  ResponsiveFlexRow,
   Score,
   Meta,
   ArticleImage,
@@ -42,13 +43,13 @@ function ArticleCard({ article }) {
           <h3>{title}</h3>
 
           <FlexRow>
-            <div>
+            <ResponsiveFlexRow>
               <Score>{similarityText}</Score>
               <Divider />
               <Meta>{formatDate(published)}</Meta>
               <Divider />
               <Meta>{source_name}</Meta>
-            </div>
+            </ResponsiveFlexRow>
             <ArticleThumbnail src={thumbnail} alt={`${title} Thumbnail`} />
           </FlexRow>
         </TextContainer>
