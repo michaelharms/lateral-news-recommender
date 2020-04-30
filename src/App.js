@@ -95,8 +95,8 @@ function App() {
       <Logo />
       <h1>News Recommender</h1>
       <p>
-        Enter a URL of a news article from the web below to get recommendations
-        for similar articles.
+        Enter the URL of a news article from the web below to get
+        recommendations for similar articles.
       </p>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <Input
