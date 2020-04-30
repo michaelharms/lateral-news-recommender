@@ -9,11 +9,18 @@ const StyledLink = styled.a`
 `;
 
 /**
- * HTML Link with best practices.
+ * HTML Link with best security practices.
  */
 function Link({ href, children, target }) {
+  const conditionalProps = {};
+
+  // https://developers.google.com/web/tools/lighthouse/audits/noopener
+  if (target === "_blank") {
+    conditionalProps.rel = "noopener noreferrer";
+  }
+
   return (
-    <StyledLink href={href} target={target} rel="noopener noreferrer">
+    <StyledLink href={href} target={target} {...conditionalProps}>
       {children}
     </StyledLink>
   );
