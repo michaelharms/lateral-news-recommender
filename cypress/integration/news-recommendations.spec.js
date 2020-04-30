@@ -41,7 +41,7 @@ describe("News Recommendations", () => {
     cy.contains("Find similar articles").click();
 
     // check if similar articles are displayed
-    cy.contains("Similar articles");
+    cy.contains("Similar articles", { timeout: 10000 });
     cy.contains("% similar");
     cy.get("[data-testid=similar-article]")
       .its("length")
