@@ -22,11 +22,6 @@ export const StyledButton = styled.button`
     background-color: ${colors.lightBlue};
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px ${colors.focusBorder};
-  }
-
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
