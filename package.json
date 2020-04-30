@@ -22,6 +22,7 @@
     "lint": "eslint src",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
+    "cypress": "node_modules/.bin/cypress run",
     "cypress:open": "node_modules/.bin/cypress open"
   },
   "eslintConfig": {
