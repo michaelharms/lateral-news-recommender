@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { space } from "styled-system";
 import ErrorMessage from "./components/ErrorMessage";
 
-// load not until needed
+// do not load until needed
 const SimilarArticles = React.lazy(() =>
   import("./components/SimilarArticles")
 );
