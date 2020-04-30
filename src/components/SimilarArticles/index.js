@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ArticleCard from "../ArticleCard";
+import Filters from "../Filters";
 import styled from "styled-components";
 
 const ArticleCardList = styled.ul`
@@ -20,6 +21,7 @@ function SimilarArticles({ articles }) {
     <>
       <h2>Similar articles</h2>
       {articles.length === 0 && <p>No similar articles.</p>}
+      {articles.length > 0 && <Filters />}
       <ArticleCardList>
         {articles.map((article) => (
           <li key={article.document_id} data-testid="similar-article">
