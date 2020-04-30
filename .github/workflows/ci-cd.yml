@@ -26,6 +26,8 @@ jobs:
 
       - name: Start Dev Server
         run: yarn start & node_modules/.bin/wait-on http://localhost:3000
+        env:
+          REACT_APP_LATERAL_KEY: ${{ secrets.LATERAL_TOKEN }}
 
       - name: E2E Tests
         uses: cypress-io/github-action@v1
