@@ -39,7 +39,8 @@ SimilarArticles.propTypes = {
    */
   articles: PropTypes.arrayOf(
     PropTypes.shape({
-      document_id: PropTypes.string.isRequired,
+      document_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
       similarity: PropTypes.number,
       title: PropTypes.string,
       url: PropTypes.string.isRequired,
