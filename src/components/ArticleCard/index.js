@@ -9,8 +9,8 @@ import {
   FlexRow,
   Score,
   Meta,
-  Image,
-  Thumbnail,
+  ArticleImage,
+  ArticleThumbnail,
   Divider,
 } from "./styled";
 
@@ -36,7 +36,7 @@ function ArticleCard({ article }) {
     <Link href={url} target="_blank">
       <MinHeightCard>
         <ImageContainer>
-          <Image src={image} alt={`${title}`} />
+          <ArticleImage src={image} alt={`${title}`} />
         </ImageContainer>
         <TextContainer p={3}>
           <h3>{title}</h3>
@@ -49,7 +49,7 @@ function ArticleCard({ article }) {
               <Divider />
               <Meta>{source_name}</Meta>
             </div>
-            <Thumbnail src={thumbnail} alt={`${title} Thumbnail`} />
+            <ArticleThumbnail src={thumbnail} alt={`${title} Thumbnail`} />
           </FlexRow>
         </TextContainer>
       </MinHeightCard>
@@ -62,7 +62,8 @@ ArticleCard.propTypes = {
    * The article to display.
    */
   article: PropTypes.shape({
-    document_id: PropTypes.string.isRequired,
+    document_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
     similarity: PropTypes.number,
     title: PropTypes.string,
     url: PropTypes.string.isRequired,

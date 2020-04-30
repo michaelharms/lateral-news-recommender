@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import { GlobalStyle } from "./styles/global";
 import Input from "./components/Input";
 import Button from "./components/Button";
@@ -8,11 +8,7 @@ import newsAPI from "./api/news";
 import styled from "styled-components";
 import { space } from "styled-system";
 import ErrorMessage from "./components/ErrorMessage";
-
-// do not load until needed
-const SimilarArticles = React.lazy(() =>
-  import("./components/SimilarArticles")
-);
+import SimilarArticles from "./components/SimilarArticles";
 
 const FlexRow = styled.div`
   ${space}
@@ -73,12 +69,15 @@ function App() {
     setExtractedArticle("");
     setSimilarArticles([]);
 
+    // extract article from URL
     const [extractResult, extractError] = await newsAPI.extractArticle(url);
 
     if (extractError) {
       setError(extractError.message);
     } else {
       setExtractedArticle(extractResult.body);
+
+      // fetch similar articles for extracted news article
       const [similarResult, similarError] = await newsAPI.findSimilarArticles(
         extractResult.body
       );
@@ -119,9 +118,7 @@ function App() {
       </FlexRow>
 
       {extractedArticle && !loading && (
-        <Suspense fallback={null}>
-          <SimilarArticles articles={similarArticles} />
-        </Suspense>
+        <SimilarArticles articles={similarArticles} />
       )}
     </>
   );
