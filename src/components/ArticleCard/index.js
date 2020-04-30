@@ -25,7 +25,7 @@ function ArticleCard({ article }) {
     published,
     image,
     thumbnail,
-    sourceName,
+    source_name,
   } = article;
 
   const similarityText = similarity
@@ -47,9 +47,9 @@ function ArticleCard({ article }) {
               <Divider />
               <Meta>{formatDate(published)}</Meta>
               <Divider />
-              <Meta>{sourceName}</Meta>
+              <Meta>{source_name}</Meta>
             </div>
-            <Thumbnail src={thumbnail} alt={`${sourceName} Icon`} />
+            <Thumbnail src={thumbnail} alt={`${title} Thumbnail`} />
           </FlexRow>
         </TextContainer>
       </MinHeightCard>
@@ -62,13 +62,17 @@ ArticleCard.propTypes = {
    * The article to display.
    */
   article: PropTypes.shape({
+    document_id: PropTypes.string.isRequired,
     similarity: PropTypes.number,
     title: PropTypes.string,
     url: PropTypes.string.isRequired,
     published: PropTypes.string,
+    author: PropTypes.string,
     image: PropTypes.string,
     thumbnail: PropTypes.string,
-    sourceName: PropTypes.string,
+    summary: PropTypes.string,
+    source_name: PropTypes.string,
+    source_slug: PropTypes.string,
   }).isRequired,
 };
 
@@ -77,9 +81,12 @@ ArticleCard.defaultProps = {
     similarity: null,
     title: "No Title",
     published: "",
-    image: null,
-    thumbnail: null,
-    sourceName: "Unknown source",
+    author: "",
+    image: "",
+    thumbnail: "",
+    summary: "",
+    source_name: "Unknown source",
+    source_slug: "",
   },
 };
 
