@@ -8,6 +8,7 @@ import newsAPI from "./api/news";
 import styled from "styled-components";
 import { space } from "styled-system";
 import ErrorMessage from "./components/ErrorMessage";
+import SimilarArticles from "./components/SimilarArticles";
 
 const FlexRow = styled.div`
   ${space}
@@ -17,19 +18,19 @@ const FlexRow = styled.div`
   justify-content: flex-end;
 `;
 
-const Article = styled.div`
-  margin: 1rem 0;
-`;
-
 /**
  * Main App
  */
 function App() {
+  // Input State
   const [url, setUrl] = useState("");
   const [inputError, setInputError] = useState("");
+  // Request State
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [article, setArticle] = useState("");
+  // Articles data state
+  const [extractedArticle, setExtractedArticle] = useState("");
+  const [similarArticles, setSimilarArticles] = useState([]);
 
   /**
    * Validate URL input and start API request
@@ -46,12 +47,12 @@ function App() {
     } else if (!url.match(regex)) {
       setInputError("Not a valid URL");
     } else {
-      extractArticle();
+      getSimilarArticles();
     }
   }
 
   /**
-   * Update URL input value
+   * Update URL input state
    */
   function handleInputChange(event) {
     setInputError("");
@@ -59,17 +60,30 @@ function App() {
   }
 
   /**
-   * Article Extraction API request handling
+   * Handling API requests for article extraction
+   * and fetching of similar articles
    */
-  async function extractArticle() {
+  async function getSimilarArticles() {
     setLoading(true);
+    setError("");
+    setExtractedArticle("");
+    setSimilarArticles([]);
 
-    const { article, error } = await newsAPI.extractArticle(url);
+    const [extractResult, extractError] = await newsAPI.extractArticle(url);
 
-    if (error) {
-      setError(error.message);
+    if (extractError) {
+      setError(extractError.message);
     } else {
-      setArticle(article.body);
+      setExtractedArticle(extractResult.body);
+      const [similarResult, similarError] = await newsAPI.findSimilarArticles(
+        extractResult.body
+      );
+
+      if (similarError) {
+        setError(similarError.message);
+      } else {
+        setSimilarArticles(similarResult);
+      }
     }
 
     setLoading(false);
@@ -80,6 +94,10 @@ function App() {
       <GlobalStyle />
       <Logo />
       <h1>News Recommender</h1>
+      <p>
+        Enter a URL of a news article from the web below to get recommendations
+        for similar articles.
+      </p>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <Input
         id="url"
@@ -92,11 +110,13 @@ function App() {
       <FlexRow mt={4}>
         {loading && <Spinner />}
         <Button onClick={handleExtractClick} disabled={loading}>
-          Extract
+          Find similar articles
         </Button>
       </FlexRow>
 
-      {article && <Article>{article}</Article>}
+      {extractedArticle && !loading && (
+        <SimilarArticles articles={similarArticles} />
+      )}
     </>
   );
 }
