@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../../styles/colors";
 
 export const StyledInput = styled.input`
+  appearance: none;
   border-radius: 5px;
   border: 1px solid ${({ error }) => (error ? colors.red : colors.lightGray)};
   display: inline-block;

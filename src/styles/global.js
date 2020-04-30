@@ -7,6 +7,12 @@ export const GlobalStyle = createGlobalStyle`
   ${normalize}
   ${fonts}
 
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px ${colors.focusBorder};
+    transition: box-shadow 0.3s ease;
+  }
+
   body {
     padding: 1rem;
     background-color: ${colors.offWhite};
