@@ -19,6 +19,7 @@ export const StyledInput = styled.input`
 
 export const Label = styled.label`
   cursor: pointer;
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   color: ${colors.gray};

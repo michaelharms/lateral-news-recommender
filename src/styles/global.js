@@ -21,11 +21,24 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 500px;
     margin: 0 auto;
 
+    h1 {
+      margin-top: 3rem;
+    }
+
+    h2 {
+      font-family: 'Lato', sans-serif;
+      margin-top: 2rem;
+    }
+
     h3 {
       font-family: 'Nunito', sans-serif;    
       font-weight: 600;
       font-size: 18px;
       line-height: 1.5;
+    }
+
+    p {
+      line-height: 1.4;
     }
   }
 `;

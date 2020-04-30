@@ -6,21 +6,16 @@ export default {
    * @param {string} url - URL to extract an article from
    */
   async extractArticle(url) {
-    const [article, error] = await request(
-      `https://document-parser-api.lateral.io/?url=${url}`,
-      {
-        method: "GET",
-      }
-    );
-
-    return { article, error };
+    return await request(`https://document-parser-api.lateral.io/?url=${url}`, {
+      method: "GET",
+    });
   },
   /**
    * Request for finding similar news articles
    * @param {string} text - Input for similarity prediction
    */
   async findSimilarArticles(text) {
-    const [articles, error] = await request(
+    return await request(
       "https://news-api.lateral.io/documents/similar-to-text",
       {
         method: "POST",
@@ -29,7 +24,5 @@ export default {
         },
       }
     );
-
-    return { articles, error };
   },
 };

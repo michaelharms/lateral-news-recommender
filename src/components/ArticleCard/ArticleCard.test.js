@@ -4,30 +4,34 @@ import ArticleCard from "./";
 
 test("renders article data", () => {
   const article = {
-    similarity: 0.6782692075,
+    document_id: "1807247",
+    similarity: 0.982821,
     title:
-      "Play To Your Strengths: 13 Even Better Ways To Improve Your Leadership Skills",
-    url:
-      "https://www.forbes.com/sites/forbescoachescouncil/2020/01/10/play-to-your-strengths-13-even-better-ways-to-improve-your-leadership-skills/",
-    published: "2020-01-10T18:15:00.000Z",
-    image:
-      "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fblogs-images.forbes.com%2Fforbescoachescouncil%2Ffiles%2F2020%2F01%2F13up-blog-post-Play-To-Strengths-1200x1213.jpg",
-    thumbnail: "https://images.getnewsbot.com/17517611.jpg",
-    sourceName: "Forbes",
+      "Piano playing transformed into Playstation controllers that play ...",
+    url: "http://www.foobarflies.io/pianette/",
+    published: "2015-02-18T14:30:02.000Z",
+    author: "A Blog",
+    image: "http://www.foobarflies.io/content/images/2015/02/fina.jpg",
+    thumbnail: "https://images.getnewsbot.com/1807247.jpg",
+    summary:
+      "We transformed two classical pianos into Playstation 2 controlers ...",
+    source_name: "Hacker News",
+    source_slug: "hacker-news",
   };
 
   const { getByText } = render(<ArticleCard article={article} />);
-  const similarity = getByText(/68%/i);
+
+  const similarity = getByText(/98%/i);
   expect(similarity).toBeInTheDocument();
 
   const title = getByText(
-    /Play To Your Strengths: 13 Even Better Ways To Improve Your Leadership Skills/i
+    /Piano playing transformed into Playstation controllers that play .../i
   );
   expect(title).toBeInTheDocument();
 
-  const date = getByText(/10. Jan. 20/i);
+  const date = getByText(/18. Feb. 15/i);
   expect(date).toBeInTheDocument();
 
-  const source = getByText(/Forbes/i);
+  const source = getByText(/Hacker News/i);
   expect(source).toBeInTheDocument();
 });
