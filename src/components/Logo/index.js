@@ -23,8 +23,18 @@ const FlexRow = styled.div`
 function Logo() {
   return (
     <FlexRow>
-      <IconImage src={logoIcon} alt="Lateral Logo Icon" />
-      <TextImage src={logoText} alt="Lateral Logo Text" />
+      <IconImage
+        width={40}
+        height={38}
+        src={logoIcon}
+        alt="Lateral Logo Icon"
+      />
+      <TextImage
+        width={135}
+        height={26}
+        src={logoText}
+        alt="Lateral Logo Text"
+      />
     </FlexRow>
   );
 }
