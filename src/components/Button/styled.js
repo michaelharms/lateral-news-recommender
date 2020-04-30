@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "../../styles/colors";
 
 export const StyledButton = styled.button`
-  -webkit-appearance: none;
+  appearance: none;
   border-radius: 100px;
   background-color: ${colors.blue};
   color: white;
