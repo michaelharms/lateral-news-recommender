@@ -34,4 +34,12 @@ describe("request", () => {
       expect(error).toBeTruthy();
     });
   });
+
+  it("handles arbitrary code errors", async () => {
+    jest.spyOn(global, "fetch").mockImplementation(() => "not valid json");
+
+    const [data, error] = await request("https://google.de", { method: "GET" });
+    expect(data).toBeFalsy();
+    expect(error).toBeTruthy();
+  });
 });
