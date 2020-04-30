@@ -69,12 +69,15 @@ function App() {
     setExtractedArticle("");
     setSimilarArticles([]);
 
+    // extract article from URL
     const [extractResult, extractError] = await newsAPI.extractArticle(url);
 
     if (extractError) {
       setError(extractError.message);
     } else {
       setExtractedArticle(extractResult.body);
+
+      // fetch similar articles for extracted news article
       const [similarResult, similarError] = await newsAPI.findSimilarArticles(
         extractResult.body
       );
