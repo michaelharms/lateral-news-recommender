@@ -20,17 +20,18 @@ test("renders article data", () => {
   };
 
   const { getByText } = render(<ArticleCard article={article} />);
-  const similarity = getByText(/68%/i);
+
+  const similarity = getByText(/98%/i);
   expect(similarity).toBeInTheDocument();
 
   const title = getByText(
-    /Play To Your Strengths: 13 Even Better Ways To Improve Your Leadership Skills/i
+    /Piano playing transformed into Playstation controllers that play .../i
   );
   expect(title).toBeInTheDocument();
 
-  const date = getByText(/10. Jan. 20/i);
+  const date = getByText(/18. Feb. 15/i);
   expect(date).toBeInTheDocument();
 
-  const source = getByText(/Forbes/i);
+  const source = getByText(/Hacker News/i);
   expect(source).toBeInTheDocument();
 });
