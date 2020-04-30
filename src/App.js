@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { GlobalStyle } from "./styles/global";
 import Input from "./components/Input";
 import Button from "./components/Button";
@@ -8,7 +8,11 @@ import newsAPI from "./api/news";
 import styled from "styled-components";
 import { space } from "styled-system";
 import ErrorMessage from "./components/ErrorMessage";
-import SimilarArticles from "./components/SimilarArticles";
+
+// do not load until needed
+const SimilarArticles = React.lazy(() =>
+  import("./components/SimilarArticles")
+);
 
 const FlexRow = styled.div`
   ${space}
@@ -115,7 +119,9 @@ function App() {
       </FlexRow>
 
       {extractedArticle && !loading && (
-        <SimilarArticles articles={similarArticles} />
+        <Suspense fallback={null}>
+          <SimilarArticles articles={similarArticles} />
+        </Suspense>
       )}
     </>
   );

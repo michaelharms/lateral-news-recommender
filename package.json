@@ -24,7 +24,8 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "cypress": "node_modules/.bin/cypress run",
-    "cypress:open": "node_modules/.bin/cypress open"
+    "cypress:open": "node_modules/.bin/cypress open",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,6 +50,7 @@
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
     "cypress": "^4.5.0",
+    "source-map-explorer": "^2.4.2",
     "wait-on": "^4.0.2"
   }
 }
