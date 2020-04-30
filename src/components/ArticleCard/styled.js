@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Card from "../Card";
+import Image from "../Image";
 import { space } from "styled-system";
 import colors from "../../styles/colors";
 
@@ -13,7 +14,7 @@ export const ImageContainer = styled.div`
   margin: 0;
 `;
 
-export const Image = styled.img`
+export const ArticleImage = styled(Image)`
   display: block;
   position: absolute;
   top: 50%;
@@ -23,7 +24,7 @@ export const Image = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-export const Thumbnail = styled.img`
+export const ArticleThumbnail = styled(Image)`
   width: 25px;
   height: 25px;
   object-fit: cover;
