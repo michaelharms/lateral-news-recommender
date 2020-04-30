@@ -2,6 +2,7 @@ import React from "react";
 import {
   Container,
   FlexRow,
+  ResponsiveFlexRow,
   FiltersLabel,
   FilterValue,
   SourcesIcon,
@@ -18,7 +19,7 @@ function Filters() {
   return (
     <Container>
       <FlexRow>
-        <FlexRow>
+        <ResponsiveFlexRow>
           <FiltersLabel>Filters:</FiltersLabel>
           <FilterValue>
             <SourcesIcon width={25} height={20} title="Sources" />
@@ -31,7 +32,7 @@ function Filters() {
             Past Month
             <SelectArrow size={20} />
           </FilterValue>
-        </FlexRow>
+        </ResponsiveFlexRow>
 
         <HelpIcon size={20} title="Help" />
       </FlexRow>
